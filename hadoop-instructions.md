@@ -42,12 +42,12 @@ Reducer: Computes the cumulative dialogue length for each character.
 Mapper: Identifies distinct words spoken by each character.
 Reducer: Collects and consolidates unique words for every character.
 4. Hadoop Counters Utilized
-TOTAL_LINES_PROCESSED: Keeps track of the total number of lines analyzed.
-TOTAL_WORDS_PROCESSED: Counts the total words present in the dataset.
-TOTAL_CHARACTERS_PROCESSED: Measures the total number of characters spoken in dialogues.
-TOTAL_UNIQUE_WORDS: Determines the number of distinct words identified.
-TOTAL_CHARACTERS_SPEAKING: Counts how many unique characters have spoken in the dataset.
-This structured approach ensures efficient script analysis and allows Hadoop to manage large-scale data processing effectively.
+- TOTAL_LINES_PROCESSED: Keeps track of the total number of lines analyzed.
+- TOTAL_WORDS_PROCESSED: Counts the total words present in the dataset.
+- TOTAL_CHARACTERS_PROCESSED: Measures the total number of characters spoken in dialogues.
+- TOTAL_UNIQUE_WORDS: Determines the number of distinct words identified.
+- TOTAL_CHARACTERS_SPEAKING: Counts how many unique characters have spoken in the dataset.
+- This structured approach ensures efficient script analysis and allows Hadoop to manage large-scale data processing effectively.
 ## Execution Steps
 
 Prerequisites:
@@ -250,10 +250,10 @@ Once you've pushed your code, go to GitHub Classroom and ensure your repository 
 
 ---
 ### Challenges Faced & Solutions
-1.Parsing Script Format
- Movie script data arrives in various non-standardized formats, making it difficult to reliably extract character names and dialogues. The data often includes scene directions and other formatting elements that can interfere with accurate parsing. Common issues include multi-line dialoguesand mixed formatting within the same script.
+1. Parsing Script Format
+Movie script data arrives in various non-standardized formats, making it difficult to reliably extract character names and dialogues. The data often includes scene directions and other formatting elements that can interfere with accurate parsing. Common issues include multi-line dialoguesand mixed formatting within the same script.
 Solution: Developed a comprehensive ScriptParser class implementing advanced text pre processing.
-2.Issues with Word Tokenization
+2. Issues with Word Tokenization
 Current tokenization using StringTokenizer is basic and misses handling of:
 Contractions (we've)
 Hyphenated words (half-blood)
@@ -265,6 +265,7 @@ Solution:Implement a reusable set with size management.
 ### Sample Input and Output
 
 Input File (movie_dialogues.txt)
+
 ## Task1 output
 ```bash
 Draco-a	13
