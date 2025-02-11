@@ -5,15 +5,24 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
-import java.util.StringTokenizer;
 
 public class DialogueLengthMapper extends Mapper<Object, Text, Text, IntWritable> {
 
-    private final static IntWritable wordCount = new IntWritable();
-    private Text character = new Text();
+    private IntWritable dialogueSize = new IntWritable();
+    private Text speakerName = new Text();
 
     @Override
-    public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
+    public void map(Object inputKey, Text inputValue, Context context) throws IOException, InterruptedException {
+        String lineContent = inputValue.toString().trim();
 
+        if (!lineContent.isEmpty() && lineContent.contains(":")) {
+            String[] parts = lineContent.split(":", 2);
+            if (parts.length < 2) return;
+
+            speakerName.set(parts[0].trim());
+            dialogueSize.set(parts[1].trim().length());
+
+            context.write(speakerName, dialogueSize);
+        }
     }
 }
